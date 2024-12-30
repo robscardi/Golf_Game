@@ -1,0 +1,87 @@
+[gd_scene load_steps=19 format=3 uid="uid://bk4sccwc8617r"]
+
+[ext_resource type="MeshLibrary" uid="uid://ds3e8feld3rdi" path="res://Resources/Level_library.tres" id="1_wrpxv"]
+[ext_resource type="Texture2D" uid="uid://vsbmvyd2nucq" path="res://Textures/ball.jpg" id="2_4puod"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="2_e8ey8"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_6hmuu"]
+[ext_resource type="PhysicsMaterial" uid="uid://x0qgqe4soqbq" path="res://Resources/materials/ball_material.tres" id="5_7qofl"]
+[ext_resource type="ArrayMesh" uid="uid://bu37qmdqv4q38" path="res://Models/arrow.obj" id="7_qg8q6"]
+[ext_resource type="Script" path="res://Scripts/player_input.gd" id="8_hd6mo"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="8_jtohl"]
+
+[sub_resource type="Compositor" id="Compositor_ooj6a"]
+
+[sub_resource type="Sky" id="Sky_7oasp"]
+
+[sub_resource type="Environment" id="Environment_162hh"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.58
+sky = SubResource("Sky_7oasp")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_c7naq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eit8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jejg3"]
+albedo_texture = ExtResource("2_4puod")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sau36"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_v8f31"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_u8jni"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_cke06"]
+albedo_texture = SubResource("ImageTexture_v8f31")
+orm_texture = SubResource("ImageTexture_u8jni")
+
+[node name="Test_Node" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_wrpxv")
+data = {
+"cells": PackedInt32Array(-2, 65535, 0, -1, 65535, 0, -65536, 65535, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, -1, 1, 0, -65536, 1, 0, -2, 1, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65535, 0, 0, -65535, 65535, 0, -65535, 1, 0, -2, 65534, 0, -1, 65534, 0, -65536, 65534, 0, -65535, 65533, 0, -65535, 65534, 0, -65536, 65533, 0, -1, 65532, 0, -1, 65533, 0, -2, 65533, 0, -2, 65532, 0, -65536, 65532, 0, -65535, 65532, 0, -2, 3, 0, -1, 3, 0, -65535, 3, 0, -65536, 3, 0, -3, 3, 0, -3, 2, 0, -3, 1, 0, -3, 65535, 0, -3, 0, 0, -4, 65534, 0, -3, 65534, 0, -4, 65533, 0, -3, 65533, 0, -4, 65532, 0, -3, 65532, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, 65531, 3, 1, 65531, 2, 1, 65531, 1, 1, 65531, 65535, 1, 65531, 0, 1, 65531, 65534, 1, 65531, 65533, 1, 65531, 65532, 1, 65531, 65531, 1, 65532, 65531, 1, 65533, 65531, 1, 65534, 65531, 1, 65535, 65531, 1, 0, 65531, 1, 1, 65531, 1, 2, 65531, 1, 2, 65532, 1, 2, 65533, 1, 2, 65534, 1, 2, 65535, 1, 2, 0, 1, 2, 1, 1, 2, 2, 1, 65531, 4, 1, 65532, 4, 1, 65533, 4, 1, 65535, 4, 1, 65534, 4, 1, 0, 4, 1, 1, 4, 1, 2, 4, 1, 2, 3, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.541517, 0.84069, 0, -0.84069, 0.541517, 0, 6.67919, 9.27185)
+compositor = SubResource("Compositor_ooj6a")
+script = ExtResource("3_6hmuu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_162hh")
+camera_attributes = SubResource("CameraAttributesPractical_c7naq")
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0512009, 1.29239, -0.0737276)
+physics_material_override = ExtResource("5_7qofl")
+linear_damp = 0.5
+script = ExtResource("2_e8ey8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_eit8e")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ball/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_jejg3")
+mesh = SubResource("SphereMesh_sau36")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_cke06")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28639, 0.0174631)
+mesh = ExtResource("7_qg8q6")
+script = ExtResource("8_jtohl")
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("8_hd6mo")
+
+[node name="BasePlane" type="Area3D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="BasePlane"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+depth = 0.0
+polygon = PackedVector2Array(-500, -500, -500, 500, 500, 500, 500, -500)
