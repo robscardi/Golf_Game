@@ -23,6 +23,10 @@ GlobalOptions="*res://Scripts/Global_options.gd"
 
 3d_physics/layer_32="BasePlane_layer"
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

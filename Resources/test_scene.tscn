@@ -57,7 +57,7 @@ camera_attributes = SubResource("CameraAttributesPractical_c7naq")
 [node name="Ball" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0512009, 1.29239, -0.0737276)
 physics_material_override = ExtResource("5_7qofl")
-linear_damp = 0.5
+linear_damp = 1.0
 script = ExtResource("2_e8ey8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]

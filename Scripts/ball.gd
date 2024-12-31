@@ -9,8 +9,8 @@ var input_rec: bool = false
 func _ready():
 	transform.origin = Vector3(0,0.5,0)
 	player.ball_moved.connect(apply_input)
-
+	
 func apply_input(direction: Vector2, velocity: float) -> void:
-	input_dir = Vector3(direction.x, global_position.y, direction.y).normalized()
+	input_dir = Vector3(direction.x, 0, direction.y).normalized()
 	input_vel = velocity
 	self.apply_impulse(input_dir*input_vel)
