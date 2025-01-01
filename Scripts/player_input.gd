@@ -9,8 +9,8 @@ var direction: Vector2
 var dragging : bool = false
 var mouse_pos: Vector3
 var ball_pos : Vector3
-const RAY_LENGHT = 1000
-const MAX_VEL = 40
+const RAY_LENGHT :int = 1000
+const MAX_VEL    :float = 40.0
 const BasePlaneMask: int = 1 << 31
 
 @onready var camera = $Camera3D

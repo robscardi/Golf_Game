@@ -17,14 +17,14 @@ func visibility_off():
 
 func change_direction(direction: Vector2, percentage:float):
 	self.dir = Vector3(direction.x, 0, direction.y).normalized()*2.5
+	print(percentage)
 	self.set_scale(Vector3(1,1,percentage))
 	self.is_dragging = true
 
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	self.global_position = ball.global_position
 	if not dir == Vector3.ZERO and is_dragging:
 		self.look_at(dir + global_position)
 	self.visible = is_dragging
 	
-		
