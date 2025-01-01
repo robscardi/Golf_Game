@@ -20,4 +20,5 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	
 	if self.input_imp:
 		state.set_linear_velocity(state.get_linear_velocity() + input_dir*input_vel)
+		#state.apply_central_impulse(input_dir*input_vel*5)
 		self.input_imp = false

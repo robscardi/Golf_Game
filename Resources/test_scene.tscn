@@ -9,8 +9,6 @@
 [ext_resource type="Script" path="res://Scripts/player_input.gd" id="8_hd6mo"]
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="8_jtohl"]
 
-[sub_resource type="Compositor" id="Compositor_ooj6a"]
-
 [sub_resource type="Sky" id="Sky_7oasp"]
 
 [sub_resource type="Environment" id="Environment_162hh"]
@@ -36,47 +34,53 @@ albedo_texture = ExtResource("2_4puod")
 albedo_texture = SubResource("ImageTexture_v8f31")
 orm_texture = SubResource("ImageTexture_u8jni")
 
+[sub_resource type="Compositor" id="Compositor_ooj6a"]
+
 [node name="Test_Node" type="Node3D"]
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_wrpxv")
 data = {
-"cells": PackedInt32Array(-2, 65535, 0, -1, 65535, 0, -65536, 65535, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, -1, 1, 0, -65536, 1, 0, -2, 1, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65535, 0, 0, -65535, 65535, 0, -65535, 1, 0, -2, 65534, 0, -1, 65534, 0, -65536, 65534, 0, -65535, 65533, 0, -65535, 65534, 0, -65536, 65533, 0, -1, 65532, 0, -1, 65533, 0, -2, 65533, 0, -2, 65532, 0, -65536, 65532, 0, -65535, 65532, 0, -2, 3, 0, -1, 3, 0, -65535, 3, 0, -65536, 3, 0, -3, 3, 0, -3, 2, 0, -3, 1, 0, -3, 65535, 0, -3, 0, 0, -4, 65534, 0, -3, 65534, 0, -4, 65533, 0, -3, 65533, 0, -4, 65532, 0, -3, 65532, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, 65531, 3, 1, 65531, 2, 1, 65531, 1, 1, 65531, 65535, 1, 65531, 0, 1, 65531, 65534, 1, 65531, 65533, 1, 65531, 65532, 1, 65531, 65531, 1, 65532, 65531, 1, 65533, 65531, 1, 65534, 65531, 1, 65535, 65531, 1, 0, 65531, 1, 1, 65531, 1, 2, 65531, 1, 2, 65532, 1, 2, 65533, 1, 2, 65534, 1, 2, 65535, 1, 2, 0, 1, 2, 1, 1, 2, 2, 1, 65531, 4, 1, 65532, 4, 1, 65533, 4, 1, 65535, 4, 1, 65534, 4, 1, 0, 4, 1, 1, 4, 1, 2, 4, 1, 2, 3, 1)
+"cells": PackedInt32Array(-2, 65535, 0, -1, 65535, 0, -65536, 65535, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, -1, 1, 0, -65536, 1, 0, -2, 1, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65535, 0, 0, -65535, 65535, 0, -65535, 1, 0, -2, 65534, 0, -1, 65534, 0, -65536, 65534, 0, -65535, 65533, 0, -65535, 65534, 0, -65536, 65533, 0, -1, 65532, 0, -1, 65533, 0, -2, 65533, 0, -2, 65532, 0, -65536, 65532, 0, -65535, 65532, 0, -2, 3, 0, -1, 3, 0, -65535, 3, 0, -65536, 3, 0, -3, 3, 0, -3, 2, 0, -3, 1, 0, -3, 65535, 0, -3, 0, 0, -4, 65534, 0, -3, 65534, 0, -4, 65533, 0, -3, 65533, 0, -4, 65532, 0, -3, 65532, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, 65531, 3, 1, 65531, 2, 1, 65531, 1, 1, 65531, 65535, 1, 65531, 0, 1, 65531, 65534, 1, 65531, 65533, 1, 65531, 65532, 1, 65531, 65531, 1, 65532, 65531, 1, 2, 65534, 1, 2, 65535, 1, 2, 0, 1, 2, 1, 1, 2, 2, 1, 65531, 4, 1, 65532, 4, 1, 65533, 4, 1, 65535, 4, 1, 65534, 4, 1, 0, 4, 1, 1, 4, 1, 2, 4, 1, 2, 3, 1, 65533, 65530, 1376257, 65533, 65529, 1376257, 65535, 65531, 1, 65535, 65529, 1, 65535, 65530, 1, 65534, 65529, 1, 2, 65533, 1, 2, 65532, 1, 2, 65531, 1, 1, 65531, 1, 0, 65531, 1, 65533, 65531, 196609, -3, 65531, 196609, -3, 65530, 196609, -3, 65529, 196609, -2, 65529, 196609, -1, 65529, 196609, -1, 65531, 1441793, -1, 65530, 1441793, -65538, 65531, 0, -65538, 65530, 0)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.541517, 0.84069, 0, -0.84069, 0.541517, 0, 6.67919, 9.27185)
-compositor = SubResource("Compositor_ooj6a")
-script = ExtResource("3_6hmuu")
+metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_162hh")
 camera_attributes = SubResource("CameraAttributesPractical_c7naq")
 
-[node name="Ball" type="RigidBody3D" parent="."]
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("8_hd6mo")
+
+[node name="Arrow" type="MeshInstance3D" parent="PlayerInput"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28639, 0.0174631)
+mesh = ExtResource("7_qg8q6")
+skeleton = NodePath("../..")
+script = ExtResource("8_jtohl")
+
+[node name="Ball" type="RigidBody3D" parent="PlayerInput"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0512009, 1.29239, -0.0737276)
+mass = 2.5
 physics_material_override = ExtResource("5_7qofl")
+inertia = Vector3(1, 1, 1)
 can_sleep = false
 linear_damp = 1.0
+angular_damp = 0.5
 script = ExtResource("2_e8ey8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInput/Ball"]
 shape = SubResource("SphereShape3D_eit8e")
 
-[node name="Mesh" type="MeshInstance3D" parent="Ball/CollisionShape3D"]
+[node name="Mesh" type="MeshInstance3D" parent="PlayerInput/Ball/CollisionShape3D"]
 material_override = SubResource("StandardMaterial3D_jejg3")
 mesh = SubResource("SphereMesh_sau36")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ORMMaterial3D_cke06")
 
-[node name="Arrow" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28639, 0.0174631)
-mesh = ExtResource("7_qg8q6")
-script = ExtResource("8_jtohl")
-
-[node name="PlayerInput" type="Node" parent="."]
-script = ExtResource("8_hd6mo")
+[node name="Camera3D" type="Camera3D" parent="PlayerInput"]
+transform = Transform3D(1, 0, 0, 0, 0.541517, 0.84069, 0, -0.84069, 0.541517, 0, 6.67919, 9.27185)
+compositor = SubResource("Compositor_ooj6a")
+script = ExtResource("3_6hmuu")
 
 [node name="BasePlane" type="Area3D" parent="."]
 collision_layer = 2147483648
