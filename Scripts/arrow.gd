@@ -17,7 +17,6 @@ func visibility_off():
 
 func change_direction(direction: Vector2, percentage:float):
 	self.dir = Vector3(direction.x, 0, direction.y).normalized()*2.5
-	print(percentage)
 	self.set_scale(Vector3(1,1,percentage))
 	self.is_dragging = true
 

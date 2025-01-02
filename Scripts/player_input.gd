@@ -9,17 +9,29 @@ var direction: Vector2
 var dragging : bool = false
 var mouse_pos: Vector3
 var ball_pos : Vector3
+
+var current_point : int:
+	set(new_value):
+		assert(new_value >= 0)
+		current_point = new_value
+		point_label.text = String.num_uint64(current_point)
+	get:
+		return current_point
+
 const RAY_LENGHT :int = 1000
 const MAX_VEL    :float = 40.0
 const BasePlaneMask: int = 1 << 31
 
+
 @onready var camera = $Camera3D
 @onready var ball = $Ball
 @onready var arrow = $Arrow
-
+@onready var point_label = $PointLabel
+@onready var base_plane = $BasePlane
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball.input_event.connect(_begin_move)
+	current_point = 0
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +45,7 @@ func _begin_move(camera: Node, event: InputEvent,
 
 
 func _physics_process(delta: float) -> void:
+	base_plane.global_position = ball.global_position
 	if dragging:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -60,6 +73,7 @@ func _input(event: InputEvent) -> void:
 			if (not event.pressed):
 				if mouse_pos:
 					ball_moved.emit(self.direction, self.velocity)
+					current_point += 1
 
 			dragging = false
 			not_dragging.emit()

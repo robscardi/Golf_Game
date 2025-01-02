@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bk4sccwc8617r"]
+[gd_scene load_steps=20 format=3 uid="uid://bk4sccwc8617r"]
 
 [ext_resource type="MeshLibrary" uid="uid://ds3e8feld3rdi" path="res://Resources/Level_library.tres" id="1_wrpxv"]
 [ext_resource type="Texture2D" uid="uid://vsbmvyd2nucq" path="res://Textures/ball.jpg" id="2_4puod"]
@@ -35,6 +35,9 @@ albedo_texture = SubResource("ImageTexture_v8f31")
 orm_texture = SubResource("ImageTexture_u8jni")
 
 [sub_resource type="Compositor" id="Compositor_ooj6a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtofw"]
+font_size = 60
 
 [node name="Test_Node" type="Node3D"]
 
@@ -82,11 +85,24 @@ transform = Transform3D(1, 0, 0, 0, 0.541517, 0.84069, 0, -0.84069, 0.541517, 0,
 compositor = SubResource("Compositor_ooj6a")
 script = ExtResource("3_6hmuu")
 
-[node name="BasePlane" type="Area3D" parent="."]
+[node name="PointLabel" type="Label" parent="PlayerInput"]
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 271.0
+offset_bottom = 112.0
+text = "prova"
+label_settings = SubResource("LabelSettings_dtofw")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BasePlane" type="Area3D" parent="PlayerInput"]
 collision_layer = 2147483648
 collision_mask = 2147483648
+monitoring = false
+monitorable = false
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="BasePlane"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="PlayerInput/BasePlane"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 depth = 0.0
 polygon = PackedVector2Array(-500, -500, -500, 500, 500, 500, 500, -500)
